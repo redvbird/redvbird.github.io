@@ -1,0 +1,36 @@
+# Claude Code 会话元数据
+.claude/
+
+# macOS 系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 本地备份
+backups/
+*.bak
+*.orig
+
+# 本地敏感信息(若有,FTP 密码/API 密钥等)
+.env
+.env.local
+*.key
+
+# 日志
+*.log
+
+# 临时文件
+tmp/
+temp/
+
+# Node(以防将来用)
+node_modules/
