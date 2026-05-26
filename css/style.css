@@ -1,5 +1,5 @@
 /* =====================================================
-   嗣通信息官网 - 主样式(多页站点)
+   思通思信息官网 - 主样式(多页站点)
    ===================================================== */
 
 :root {
@@ -10,6 +10,8 @@
   --color-text-muted: #a0aec0;
   --color-accent: #00d4aa;
   --color-accent-hover: #00b894;
+  --color-warm: #f5a623;
+  --color-warm-hover: #e09614;
   --color-error: #ff6b6b;
   --color-border: rgba(255, 255, 255, 0.08);
 
@@ -204,8 +206,16 @@ p { margin: 0 0 var(--space-sm); }
   font-family: inherit;
   text-align: center;
 }
-.btn--primary { background: var(--color-accent); color: var(--color-bg) !important; }
-.btn--primary:hover { background: var(--color-accent-hover); transform: translateY(-2px); }
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-bg) !important;
+  box-shadow: 0 4px 18px rgba(0, 212, 170, 0.35);
+}
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 212, 170, 0.45);
+}
 .btn--ghost {
   background: transparent;
   border-color: var(--color-border);
@@ -214,45 +224,126 @@ p { margin: 0 0 var(--space-sm); }
 .btn--ghost:hover { border-color: var(--color-accent); color: var(--color-accent) !important; }
 .btn--sm { padding: 8px 16px; font-size: 14px; }
 
-/* ===== Hero(首页大首屏) ===== */
+/* ===== Hero(首页大首屏 - 两栏布局) ===== */
 .hero {
-  padding: 120px 0 80px;
+  padding: 100px 0 80px;
   background:
-    radial-gradient(ellipse at top, rgba(0, 212, 170, 0.12), transparent 60%),
+    radial-gradient(ellipse at top left, rgba(0, 212, 170, 0.14), transparent 55%),
+    radial-gradient(ellipse at bottom right, rgba(245, 166, 35, 0.08), transparent 50%),
     linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
-  text-align: center;
+}
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+.hero__eyebrow {
+  display: inline-block;
+  color: var(--color-warm);
+  font-size: var(--fs-small);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  padding: 4px 12px;
+  background: rgba(245, 166, 35, 0.1);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  border-radius: 999px;
 }
 .hero__title {
   font-size: var(--fs-hero);
   margin-bottom: var(--space-md);
+  line-height: 1.15;
 }
 .hero__title-accent { color: var(--color-accent); }
 .hero__subtitle {
-  font-size: 17px;
+  font-size: 18px;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+  font-weight: 500;
+}
+.hero__lead {
+  font-size: 16px;
   color: var(--color-text-muted);
-  max-width: 720px;
-  margin: 0 auto var(--space-lg);
+  margin-bottom: var(--space-lg);
+  line-height: 1.7;
 }
 .hero__cta {
   display: flex;
   gap: var(--space-sm);
-  justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: var(--space-lg);
+  margin-bottom: 0;
 }
-.hero__highlights {
+.hero__trust {
   display: flex;
-  justify-content: center;
-  gap: var(--space-xl);
+  gap: var(--space-md);
   flex-wrap: wrap;
-  margin-top: var(--space-lg);
+  margin-top: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: var(--fs-small);
 }
-.hero__highlights li { color: var(--color-text-muted); }
-.hero__highlights strong {
-  color: var(--color-accent);
-  font-size: 22px;
-  margin-right: 6px;
+.hero__trust strong {
+  color: var(--color-warm);
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+/* Hero 右侧:数据卡片 */
+.hero__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+.stat-card {
+  background: linear-gradient(145deg, rgba(20, 37, 68, 0.7), rgba(15, 30, 54, 0.5));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-md);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform var(--transition), border-color var(--transition);
+  text-align: center;
+}
+.stat-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent);
+}
+.stat-card--warm:hover { border-color: var(--color-warm); }
+.stat-card__num {
+  display: block;
+  font-size: 40px;
+  font-weight: 700;
   font-family: var(--font-en);
+  line-height: 1.1;
+  color: var(--color-accent);
+  margin-bottom: 4px;
+}
+.stat-card--warm .stat-card__num { color: var(--color-warm); }
+.stat-card__num small {
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 4px;
+  color: inherit;
+}
+.stat-card__label {
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 4px;
+}
+.stat-card__desc {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .hero__grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+  .hero { padding: 60px 0 48px; }
+  .hero__cta { justify-content: flex-start; }
 }
 
 /* ===== Page Hero(子页面小首屏) ===== */
@@ -748,8 +839,8 @@ p { margin: 0 0 var(--space-sm); }
   .fade-in { opacity: 1; transform: none; }
 }
 
-/* ===== 价格高亮 ===== */
-.price-highlight { color: var(--color-accent); font-weight: 600; }
+/* ===== 价格高亮(暖色,与品牌主色青绿区分) ===== */
+.price-highlight { color: var(--color-warm); font-weight: 600; }
 
 /* ===== 行业页:行业现状/介绍段落 ===== */
 .industry-intro {
