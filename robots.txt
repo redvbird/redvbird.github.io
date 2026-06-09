@@ -13,4 +13,4 @@ Allow: /
 User-agent: YisouSpider
 Allow: /
 
-Sitemap: https://www.sitongservice.com/sitemap.xml
+Sitemap: https://www.sitongsi.com/sitemap.xml
