@@ -175,6 +175,23 @@ p { margin: 0 0 var(--space-sm); }
 }
 .site-nav__cta:hover { background: var(--color-accent-hover); }
 
+/* 语言切换按钮(EN) */
+.site-nav__lang {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  padding: 5px 12px !important;
+  font-size: 13px !important;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted) !important;
+  font-family: var(--font-en);
+  transition: border-color var(--transition), color var(--transition);
+}
+.site-nav__lang:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent) !important;
+}
+
 .site-nav__toggle {
   display: none;
   background: transparent;
